@@ -1,7 +1,7 @@
 # JavaScript Promises
 
 ## Objective
-
+ 
 Your objective is to handle the result of a promise with promise consumers, and update the DOM based on resolution or rejection. The Promise will resolve with an array of hobbits that should be rendered on the DOM in the form of list items. If any errors occur, feedback should be displayed to the user on the DOM.
 
 ## Getting Started
