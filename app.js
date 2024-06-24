@@ -3,17 +3,21 @@
  * @returns A promise that is designed to resolve with a list of hobbits, or potentially fail with an failure object. The failure object includes a boolean success property and a string message property.
  */
 let error = document.querySelector("#error");
-let list = document.querySelectorAll("#list");
-let arr = ["Bilbo", "Frodo", "Sam", "Merry", "Pippin"];
+let list = document.querySelector("#list");
+const thing = {
+  favoriteColor:"Blue",
+  message:"Everyone has a favorite color!"
+}
+console.log(thing.favoriteColor);
 
 function getList() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      let potentialFail = Math.round(Math.random() * 100) < 10;
+      let potentialFail = Math.round(Math.random() * 100) < 50;
       if (potentialFail) {
         reject({ success: false, message: "Failed to get list of hobbits." });
       } else {
-        resolve(arr);
+        resolve(["Bilbo", "Frodo", "Sam", "Merry", "Pippin"]);
       }
     }, 10);
   });
@@ -21,16 +25,18 @@ function getList() {
 
 getList()
   .then((pass) => {
-    for (let i = 0; i < list.length; i++) {
+    for (let i = 0; i < pass.length; i++) {
       let li = document.createElement("li");
-      li.textcontent = arr[i];
-      ul.appendChild
+      li.textContent = pass[i];
+      list.appendChild(li);
            
     }
+    console.log(pass);
   })
 
   .catch((fail) => {
-   error.textcontent = error.message;
+   error.textContent = fail.message;
+   console.log(fail);
   });
 
   
